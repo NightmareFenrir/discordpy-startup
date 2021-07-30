@@ -1,11 +1,12 @@
-from discord.ext import commands
-from discord.ext import tasks
+from discord.ext import commands, tasks
 import os
-from datetime import datetime 
+from datetime import datetime, timedelta, timezone
 
 client = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-channel_id = 870490482415915008
+channel_id = os.environ['LOBBY_CHANNEL_ID']
+
+JST = timezone(timedelta(hours=+9), 'JST')
 
 # ================================================================================
 # 定時タスク
@@ -146,7 +147,7 @@ EVENT_TIME_TABLE = {
 @tasks.loop(seconds = 5, reconnect = True)
 async def loop():
     # 現在の時刻
-    now = datetime.now()
+    now = datetime.now(JST)
     time = now.strftime('%H:%M')
     table = EVENT_TIME_TABLE[now.weekday()]
     channel = client.get_channel(channel_id)
