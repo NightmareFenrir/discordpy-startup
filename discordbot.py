@@ -141,7 +141,7 @@ EVENT_TIME_TABLE = {
     }
 }
 
-@tasks.loop(seconds = 5, reconnect = True)
+@tasks.loop(seconds = 60, reconnect = True)
 async def loop():
     # 現在の時刻
     now = datetime.now(JST)
