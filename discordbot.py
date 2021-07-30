@@ -151,8 +151,6 @@ async def loop():
     
     if channel is None:
         return
-    
-    await channel.send(time)
 
     if time in table:   
         for msg in table[time]:
