@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 
 client = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-channel_id = os.environ['LOBBY_CHANNEL_ID']
+channel_id = int(os.environ['LOBBY_CHANNEL_ID'])
 
 JST = timezone(timedelta(hours=+9), 'JST')
 
@@ -97,9 +97,6 @@ EVENT_TIME_TABLE = {
             {'message': '【イベント開始】リングが開始しました！'}
         ],
         '21:30': [
-            {'message': '【イベント終了】リングが終了しました！'}
-        ],
-        '18:28': [
             {'message': '【イベント終了】リングが終了しました！'}
         ]
     },
