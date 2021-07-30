@@ -5,7 +5,7 @@ from datetime import datetime
 
 client = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-channel_id = os.environ['LOBBY_CHANNEL_ID']
+channel_id = 870490482415915008
 
 # ================================================================================
 # 定時タスク
