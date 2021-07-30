@@ -150,9 +150,11 @@ async def loop():
     time = now.strftime('%H:%M')
     table = EVENT_TIME_TABLE[now.weekday()]
     channel = client.get_channel(channel_id)
-
+    
     if channel is None:
         return
+    
+    await channel.send(time)
 
     if time in table:   
         for msg in table[time]:
