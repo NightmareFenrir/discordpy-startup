@@ -98,7 +98,7 @@ EVENT_TIME_TABLE = {
         '21:30': [
             {'message': '【イベント終了】リングが終了しました！'}
         ],
-        '18:19': [
+        '18:22': [
             {'message': 'テスト'}
         ]
     },
@@ -143,7 +143,7 @@ EVENT_TIME_TABLE = {
     }
 }
 
-@tasks.loop(seconds = 60, reconnect = True)
+@tasks.loop(seconds = 6, reconnect = True)
 async def loop():
     # 現在の時刻
     now = datetime.now()
