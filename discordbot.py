@@ -5,7 +5,7 @@ from datetime import datetime
 
 client = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-LOBBY_CHANNEL_ID = 870490482415915008
+channel_id = os.environ['LOBBY_CHANNEL_ID']
 
 # ================================================================================
 # 定時タスク
@@ -97,6 +97,9 @@ EVENT_TIME_TABLE = {
         ],
         '21:30': [
             {'message': '【イベント終了】リングが終了しました！'}
+        ],
+        '18:19': [
+            {'message': 'テスト'}
         ]
     },
     # 土曜日
@@ -147,7 +150,7 @@ async def loop():
     time = now.strftime('%H:%M')
     time = '00:00'
     table = EVENT_TIME_TABLE[now.weekday()]
-    channel = client.get_channel(LOBBY_CHANNEL_ID)
+    channel = client.get_channel(channel_id)
 
     if channel is None:
         return
