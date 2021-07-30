@@ -98,8 +98,8 @@ EVENT_TIME_TABLE = {
         '21:30': [
             {'message': '【イベント終了】リングが終了しました！'}
         ],
-        '18:22': [
-            {'message': 'テスト'}
+        '18:25': [
+            {'message': '【イベント終了】リングが終了しました！'}
         ]
     },
     # 土曜日
@@ -143,12 +143,11 @@ EVENT_TIME_TABLE = {
     }
 }
 
-@tasks.loop(seconds = 6, reconnect = True)
+@tasks.loop(seconds = 5, reconnect = True)
 async def loop():
     # 現在の時刻
     now = datetime.now()
     time = now.strftime('%H:%M')
-    time = '00:00'
     table = EVENT_TIME_TABLE[now.weekday()]
     channel = client.get_channel(channel_id)
 
